@@ -67,7 +67,7 @@ Here the *Private IP Address* ranges come to play. The below ranges are called "
 | 172.16-31.0-255.0-255 | 1M IPs |
 | 10.0-255.0-255.0-255 | 16M IPs |
 
-Any one can use any of these IPs on her devices as long as it is not connected directly to the internet. Have a look at this example:
+Any one can use any of these IPs on their devices as long as it is not connected directly to the internet. Have a look at this example:
 
 ```text
                                                                                               XXXXXX
@@ -192,17 +192,17 @@ B- ...
 
 ![tcp flow diagram](/images/tcpflow.gif)
 
-As you can see, TCP needs a lot of communications and spends time (or even retransmits data) to make sure that the receiver is getting the exact correct data available on the server. Strangely in some cases this is not what we are looking for. If you are watching a movie or having a phone call or enjoying a game stream, you prefer to continue watching live in case of a 1s issue in your network. Thats why we also have the UDP. 
+As you can see, TCP needs a lot of communications and spends time (or even retransmits data) to make sure that the receiver is getting the exact correct data available on the server. Strangely in some cases this is not what we are looking for. If you are watching a movie or having a phone call or enjoying a game stream, you prefer to continue watching live in case of a 1s issue in your network. That's why we also have the UDP. 
 
 #### UDP
 
-You are video-chatting with a friend and network fluctuates. What is a better choice? </br>
+You are video-chatting with a friend and network fluctuates. Which one is a better choice? </br>
 A\) retransmitting the missing packets and/or reestablishing the connection and continue the whole conversation with a 2s delay or ... </br> 
-B\) just show the newer packets we got and continue the live vide-conference and just forget about that 2 second fluctuation \(missed data\)? If your choice is B, it is better if you use UDP \(User Datagram Protocol\) for your chat program. UDP is less reliable: the sender sends packets without communicating much and hearing back from the receiver and receiver listens for packets without negotiating the exact details with the sender. It is much faster than TCP but you can not be sure that 100% of packets will be received by the B party.
+B\) just show the newer packets we got and continue the live video call and just forget about that 2 second fluctuation \(missed data\)? If your choice is B, it is better if you use UDP \(User Datagram Protocol\) for your chat program. UDP is less reliable; the sender sends packets without communicating much and hearing back from the receiver and receiver listens for packets without negotiating the exact details with the sender. It is much faster than TCP but you can not be sure that 100% of packets will be received by the B party.
 
 #### ICMP
 
-Internet Control Messaging Protocol or ICMP is a specific purpose protocol used to check the connectivity of the servers by the `ping` command. The first computer just tells "are you there?" and the second will answer "yes I'm here". Have a look at this practical example:
+Internet Control Messaging Protocol or ICMP is a specific purpose protocol used to check the connectivity of the servers by the `ping` command. The first computer just asks "Are you there?" and the second one will answer "Yes I'm here". Have a look at this practical example:
 
 ```text
 [jadi@funlife ~]$ ping google.com
@@ -215,13 +215,13 @@ PING google.com (173.194.32.135) 56(84) bytes of data.
 rtt min/avg/max/mdev = 236.707/238.174/239.642/1.546 ms
 ```
 
-As you can see, we are pinging \(send ICMP packets\) to a server and it answers are back \(replying to our ICMP packets\).
+As you can see, we are pinging \(send ICMP packets\) a server and it answers back to us \(replying to our ICMP packets\).
 
 > ICMP is used for network troubleshooting and DOES NOT transfers user data
 
 ### Port
 
-Any computer has an address but there are many programs running on that computer. By using an IP address you can tell the Internet the destination of your packets but how can you decide which program on that computer should answer to your packet? We know that a computer with the address of 5.1.23.1 has a webserver and a ftp server on it but how can we reach it and tell it "i want the index.html of your webserver" or "deliver me the XYZ file from your FTP server"? This is done using PORTs. Ports are numbers where a program LISTENS to. For example port 80 is reserved for webservers so if I connect to 5.1.23.1:80 I'm sure that I'm talking with the webserver. In the same way, when the file transport protocol \(FTP\) starts, it starts listening on port 20 & 21 and if I use a FTP client to reach that computer, I will automatically connect to port 21 which is reserved for FTP.
+Any computer has an address but there are many programs running on that computer. By using an IP address you can tell the Internet the destination of your packets, but how can you decide which program on that computer should answer to your packet? We know that a computer with the address of 5.1.23.1 has a webserver and a ftp server on it but how can we reach it and tell it "i want the index.html of your webserver" or "deliver me the XYZ file from your FTP server"? This is done using PORTs. Ports are numbers where a program LISTENS to. For example port 80 is reserved for webservers so if I connect to 5.1.23.1:80 I'm sure that I'm talking with the webserver. In the same way, when the file transport protocol \(FTP\) starts, it starts listening on port 20 & 21 and if I use a FTP client to reach that computer, I will automatically connect to port 21 which is reserved for FTP.
 
 Different ports can use different transmission protocols \(UDP or TCP\). The default port of some protocols are as follow. These are very important and most admins know them.
 
